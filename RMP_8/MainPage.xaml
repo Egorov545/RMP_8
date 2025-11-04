@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RMP_8.MainPage"
+             Title="Анкета студента"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+
+            <TableView>
+                <TableRoot>
+                    <TableSection>
+                        <ViewCell>
+                            <Image Source="man.jpg" HorizontalOptions="Center"/>
+                        </ViewCell>
+                    </TableSection>
+                    
+                    <TableSection Title="Персональные данные">
+                        <EntryCell x:Name="lastName" Label="Фамилия:" Placeholder="Введите фамилию"/>
+                        <EntryCell x:Name="firstName" Label="Имя:" Placeholder="Введите имя"/>
+                        <EntryCell x:Name="middleName" Label="Отчество:" Placeholder="Введите отчество"/>
+
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="15,0">
+                                <Label Text="Пол:" VerticalOptions="Center"/>
+                                <Picker x:Name="genderPicker" Title="Выберите пол" HorizontalOptions="FillAndExpand">
+                                    <Picker.Items>
+                                        <x:String>Мужской</x:String>
+                                        <x:String>Женский</x:String>
+                                    </Picker.Items>
+                                </Picker>
+                            </StackLayout>
+                        </ViewCell>
+
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="15,0">
+                                <Label Text="Дата рождения:" VerticalOptions="Center"/>
+                                <DatePicker x:Name="birthDate" MaximumDate="01/01/2011" HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+                    
+                    <TableSection Title="Дополнительная информация">
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="15,0">
+                                <Label Text="Общежитие:" VerticalOptions="Center" WidthRequest="100"/>
+                                <Switch x:Name="dormitorySwitch" IsToggled="False"/>
+                                <Label Text="Нужно" VerticalOptions="Center" Margin="10,0,0,0"/>
+                            </StackLayout>
+                        </ViewCell>
+
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="15,0">
+                                <Label Text="Староста:" VerticalOptions="Center" WidthRequest="100"/>
+                                <Switch x:Name="monitorSwitch" IsToggled="False"/>
+                                <Label Text="Является" VerticalOptions="Center" Margin="10,0,0,0"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+                    
+                    <TableSection Title="Оценки">
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="15,0">
+                                <Label Text="Математика:" VerticalOptions="Center" WidthRequest="100"/>
+                                <Picker x:Name="mathGrade" Title="Выберите оценку" HorizontalOptions="FillAndExpand">
+                                    <Picker.Items>
+                                        <x:String>2</x:String>
+                                        <x:String>3</x:String>
+                                        <x:String>4</x:String>
+                                        <x:String>5</x:String>
+                                    </Picker.Items>
+                                </Picker>
+                            </StackLayout>
+                        </ViewCell>
+
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="15,0">
+                                <Label Text="Русский:" VerticalOptions="Center" WidthRequest="100"/>
+                                <Picker x:Name="russianGrade" Title="Выберите оценку" HorizontalOptions="FillAndExpand">
+                                    <Picker.Items>
+                                        <x:String>2</x:String>
+                                        <x:String>3</x:String>
+                                        <x:String>4</x:String>
+                                        <x:String>5</x:String>
+                                    </Picker.Items>
+                                </Picker>
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+            
+            <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="Center">
+                <Button x:Name="saveButton" Text="Сохранить" 
+                       Clicked="saveButton_Clicked" BackgroundColor="LightBlue" WidthRequest="150"/>
+
+                <Button x:Name="clearButton" Text="Очистить" 
+                       Clicked="clearButton_Clicked" BackgroundColor="LightGray" WidthRequest="150"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
