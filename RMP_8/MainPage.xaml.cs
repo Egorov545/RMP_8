@@ -171,6 +171,7 @@ namespace RMP_8
             monitorSwitch.IsToggled = false;
             mathGrade.SelectedIndex = -1;
             russianGrade.SelectedIndex = -1;
+            studentPhoto.Source = ImageSource.FromFile("man.jpg");
         }
 
         private void loadButton_Clicked(object sender, EventArgs e)
