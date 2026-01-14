@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RMP_8.LoginPage"
+             Title="Вход">
+
+    <VerticalStackLayout Padding="20" Spacing="30" VerticalOptions="Center">
+
+        <Label Text="Вход в приложение" 
+               FontSize="24" 
+               HorizontalOptions="Center"/>
+
+        <Label x:Name="passwordDisplay" 
+               FontSize="40" 
+               HorizontalOptions="Center"/>
+
+        <Grid RowDefinitions="*,*,*,*" 
+              ColumnDefinitions="*,*,*" 
+              RowSpacing="10" 
+              ColumnSpacing="10">
+
+            <Button Grid.Row="0" Grid.Column="0" Text="1" CommandParameter="1" Clicked="OnDigitClicked"/>
+            <Button Grid.Row="0" Grid.Column="1" Text="2" CommandParameter="2" Clicked="OnDigitClicked"/>
+            <Button Grid.Row="0" Grid.Column="2" Text="3" CommandParameter="3" Clicked="OnDigitClicked"/>
+
+            <Button Grid.Row="1" Grid.Column="0" Text="4" CommandParameter="4" Clicked="OnDigitClicked"/>
+            <Button Grid.Row="1" Grid.Column="1" Text="5" CommandParameter="5" Clicked="OnDigitClicked"/>
+            <Button Grid.Row="1" Grid.Column="2" Text="6" CommandParameter="6" Clicked="OnDigitClicked"/>
+
+            <Button Grid.Row="2" Grid.Column="0" Text="7" CommandParameter="7" Clicked="OnDigitClicked"/>
+            <Button Grid.Row="2" Grid.Column="1" Text="8" CommandParameter="8" Clicked="OnDigitClicked"/>
+            <Button Grid.Row="2" Grid.Column="2" Text="9" CommandParameter="9" Clicked="OnDigitClicked"/>
+
+            <Button Grid.Row="3" Grid.Column="0" Text="0" CommandParameter="0" Clicked="OnDigitClicked"/>
+            <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
+                    Text="Удалить" 
+                    Clicked="OnDeleteClicked"/>
+
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

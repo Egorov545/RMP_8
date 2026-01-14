@@ -2,117 +2,80 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RMP_8.MainPage"
-             Title="Анкета студента"
-             Shell.NavBarIsVisible="False">
+             Title="Данные студента">
 
     <ScrollView>
         <StackLayout Padding="20" Spacing="15">
-            <Image x:Name="studentPhoto" Source="man.jpg" HorizontalOptions="Center">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="studentPhoto_Tapped"/>
-                </Image.GestureRecognizers>
-            </Image>
-            <TableView>
-                <TableRoot>
-                    <TableSection Title="Персональные данные">
-                        <EntryCell x:Name="lastName" Label="Фамилия:" Placeholder="Введите фамилию"/>
-                        <EntryCell x:Name="firstName" Label="Имя:" Placeholder="Введите имя"/>
-                        <EntryCell x:Name="middleName" Label="Отчество:" Placeholder="Введите отчество"/>
 
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal" Padding="15,0">
-                                <Label Text="Пол:" VerticalOptions="Center"/>
-                                <Picker x:Name="genderPicker" Title="Выберите пол" HorizontalOptions="FillAndExpand">
-                                    <Picker.Items>
-                                        <x:String>Мужской</x:String>
-                                        <x:String>Женский</x:String>
-                                    </Picker.Items>
-                                </Picker>
-                            </StackLayout>
-                        </ViewCell>
+            <Label FontSize="24" 
+                   HorizontalTextAlignment="Center" 
+                   Text="Просмотр данных студента"/>
 
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal" Padding="15,0">
-                                <Label Text="Дата рождения:" VerticalOptions="Center"/>
-                                <DatePicker x:Name="birthDate" MaximumDate="01/01/2011" HorizontalOptions="FillAndExpand"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </TableSection>
-                    
-                    <TableSection Title="Дополнительная информация">
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal" Padding="15,0">
-                                <Label Text="Общежитие:" VerticalOptions="Center" WidthRequest="100"/>
-                                <Switch x:Name="dormitorySwitch" IsToggled="False"/>
-                                <Label Text="Нужно" VerticalOptions="Center" Margin="10,0,0,0"/>
-                            </StackLayout>
-                        </ViewCell>
+            <Image x:Name="studentPhoto" 
+                   Source="man.jpg" 
+                   HeightRequest="200" 
+                   WidthRequest="200" 
+                   HorizontalOptions="Center"/>
 
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal" Padding="15,0">
-                                <Label Text="Староста:" VerticalOptions="Center" WidthRequest="100"/>
-                                <Switch x:Name="monitorSwitch" IsToggled="False"/>
-                                <Label Text="Является" VerticalOptions="Center" Margin="10,0,0,0"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </TableSection>
-                    
-                    <TableSection Title="Оценки">
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal" Padding="15,0">
-                                <Label Text="Математика:" VerticalOptions="Center" WidthRequest="100"/>
-                                <Picker x:Name="mathGrade" Title="Выберите оценку" HorizontalOptions="FillAndExpand">
-                                    <Picker.Items>
-                                        <x:String>2</x:String>
-                                        <x:String>3</x:String>
-                                        <x:String>4</x:String>
-                                        <x:String>5</x:String>
-                                    </Picker.Items>
-                                </Picker>
-                            </StackLayout>
-                        </ViewCell>
+            <Border BackgroundColor="#E3F2FD" Padding="15">
+                <StackLayout Spacing="10">
+                    <Label Text="Персональные данные:" 
+                           FontAttributes="Bold" 
+                           FontSize="18"/>
 
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal" Padding="15,0">
-                                <Label Text="Русский:" VerticalOptions="Center" WidthRequest="100"/>
-                                <Picker x:Name="russianGrade" Title="Выберите оценку" HorizontalOptions="FillAndExpand">
-                                    <Picker.Items>
-                                        <x:String>2</x:String>
-                                        <x:String>3</x:String>
-                                        <x:String>4</x:String>
-                                        <x:String>5</x:String>
-                                    </Picker.Items>
-                                </Picker>
-                            </StackLayout>
-                        </ViewCell>
-                    </TableSection>
-                </TableRoot>
-            </TableView>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="ФИО:" FontAttributes="Bold" WidthRequest="120"/>
+                        <Label x:Name="fullNameLabel" Text="Не указано"/>
+                    </StackLayout>
 
-            <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="Center">
-                <Label Text="Способ сохранения:" VerticalOptions="Center"/>
-                <Picker x:Name="storageMethodPicker" SelectedIndex ="0" WidthRequest="200">
-                    <Picker.Items>
-                        <x:String>Preferences</x:String>
-                        <x:String>Файл</x:String>
-                    </Picker.Items>
-                </Picker>
-            </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Пол:" FontAttributes="Bold" WidthRequest="120"/>
+                        <Label x:Name="genderLabel" Text="Не указан"/>
+                    </StackLayout>
 
-            <StackLayout Spacing="15" HorizontalOptions="Center">
-                <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="Center">
-                    <Button x:Name="saveButton" Text="Сохранить" 
-                        Clicked="saveButton_Clicked" WidthRequest="150"/>
-                    <Button x:Name="loadButton" Text="Загрузить" 
-                        Clicked="loadButton_Clicked" WidthRequest="150"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Дата рождения:" FontAttributes="Bold" WidthRequest="120"/>
+                        <Label x:Name="birthDateLabel" Text="Не указана"/>
+                    </StackLayout>
+                                        
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Общежитие:" FontAttributes="Bold" WidthRequest="120"/>
+                        <Label x:Name="dormitoryLabel" Text="Не указано"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Староста:" FontAttributes="Bold" WidthRequest="120"/>
+                        <Label x:Name="monitorLabel" Text="Не указано"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Математика:" FontAttributes="Bold" WidthRequest="120"/>
+                        <Label x:Name="mathGradeLabel" Text="Не указана"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Русский язык:" FontAttributes="Bold" WidthRequest="120"/>
+                        <Label x:Name="russianGradeLabel" Text="Не указана"/>
+                    </StackLayout>
                 </StackLayout>
-                
-                <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="Center">
-                    <Button x:Name="clearButton" Text="Очистить" 
-                        Clicked="clearButton_Clicked" WidthRequest="150"/>
-                </StackLayout>
-            </StackLayout>
+            </Border>
 
+            <StackLayout Orientation="Horizontal" 
+                         Spacing="10" 
+                         HorizontalOptions="Center" 
+                         Margin="0,20">
+                <Button x:Name="editButton" 
+                        Text="Редактировать данные" 
+                        Clicked="OnEditClicked"                         
+                        WidthRequest="200"/>
+
+                <Button x:Name="logoutButton" 
+                        Text="Выйти" 
+                        Clicked="OnLogoutClicked" 
+                        BackgroundColor="Red" 
+                        TextColor="White" 
+                        WidthRequest="100"/>
+            </StackLayout>
 
         </StackLayout>
     </ScrollView>
